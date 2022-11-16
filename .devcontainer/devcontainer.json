@@ -1,4 +1,6 @@
 {
-	"name": "Universal Image With Features",
-	"image": "mcr.microsoft.com/devcontainers/universal:latest"
+	"image": "mcr.microsoft.com/devcontainers/universal:latest",
+	"features": {
+		"ghcr.io/NicoVIII/devcontainer-features/pnpm:1": {}
+	}
 }
