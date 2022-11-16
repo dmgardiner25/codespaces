@@ -1,0 +1,4 @@
+{
+	"name": "Universal Image With Features",
+	"image": "mcr.microsoft.com/devcontainers/universal:latest"
+}
