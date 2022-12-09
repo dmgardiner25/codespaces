@@ -1,6 +1,6 @@
 {
     "remoteEnv": {
-        "PATH": "/test/path:${containerEnv:PATH}",
+        "PATH": "${containerEnv:PATH}:/test/path",
         "TEST_REMOTE_ENV": "test"
     }
 }
