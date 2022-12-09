@@ -1,4 +1,5 @@
 {
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "remoteEnv": {
         "PATH": "${containerEnv:PATH}",
         "TEST_REMOTE_ENV": "test"
