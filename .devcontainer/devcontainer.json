@@ -2,5 +2,9 @@
     "remoteEnv": {
         "PATH": "/test/path:${containerEnv:PATH}",
         "TEST_REMOTE_ENV": "test"
-    }
+    },
+    "postAttachCommand": [
+        "echo test1",
+        "echo test2"
+    ]
 }
