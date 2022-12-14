@@ -4,7 +4,7 @@
         "TEST_REMOTE_ENV": "test"
     },
     "postAttachCommand": [
-        "echo test1",
-        "echo test2"
+        "echo",
+        "test2"
     ]
 }
