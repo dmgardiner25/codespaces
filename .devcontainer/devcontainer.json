@@ -1,7 +1,12 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-    "remoteEnv": {
-        "PATH": "/test/path:${containerEnv:PATH}",
-        "TEST_REMOTE_ENV": "test"
-    }
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"username": "${localEnv:GITHUB_USER}",
+			"userUid": "1999",
+			"userGid": "1999"
+		}
+	},
+	"postCreateCommand": "sudo cp .devcontainer/welcome-message.txt /usr/local/etc/vscode-dev-containers/first-run-notice.txt",
+	"remoteUser": "${localEnv:GITHUB_USER}"
 }
