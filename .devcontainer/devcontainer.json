@@ -1,5 +1,15 @@
 {
-	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "service",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"cweijan.vscode-mysql-client2"
+			]
+		}
+	},
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"username": "${localEnv:GITHUB_USER}",
@@ -7,6 +17,6 @@
 			"userGid": "1999"
 		}
 	},
-	"postCreateCommand": "sudo cp .devcontainer/welcome-message.txt /usr/local/etc/vscode-dev-containers/first-run-notice.txt",
+	"postCreateCommand": "sudo echo TEST > /workspaces/codespaces/text.txt",
 	"remoteUser": "${localEnv:GITHUB_USER}"
 }
