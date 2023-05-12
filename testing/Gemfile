@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+ruby "3.0.5"
+
+# Specify your gem's dependencies in testing.gemspec
+gemspec
+
+gem "rake", "~> 13.0"
