@@ -1,0 +1,78 @@
+services:
+  app:
+    build:
+      context: /var/lib/docker/codespacemount/workspace/codespaces
+      dockerfile: .devcontainer/Dockerfile
+    command: sleep infinity
+    depends_on:
+      db:
+        condition: service_healthy
+      localstack:
+        condition: service_started
+      memcached:
+        condition: service_started
+      redis:
+        condition: service_started
+    environment:
+      CODESPACES: "********"
+    labels:
+      ContainerVersion: '13'
+      Type: codespaces
+    network_mode: service:db
+    volumes:
+    - /.codespaces/agent/mount:/.codespaces/bin:rw
+    - /mnt/containerTmp:/tmp:rw
+    - /var/lib/docker/codespacemount/workspace/codespaces:/workspace:cached
+    - /var/lib/docker/codespacemount/workspace:/workspaces:rw
+    - /var/lib/docker/codespacemount/.persistedshare:/workspaces/.codespaces/.persistedshare:rw
+    - /root/.codespaces/shared:/workspaces/.codespaces/shared:rw
+  db:
+    container_name: db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    image: postgres:12.9
+    restart: unless-stopped
+    volumes:
+    - /var/lib/docker/codespacemount/workspace/codespaces/.devcontainer/create-db-user.sql:/docker-entrypoint-initdb.d/create-db-user.sql:rw
+    - postgres-data:/var/lib/postgresql/data:rw
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-U", "postgres"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s 
+  localstack:
+    container_name: localstack
+    environment:
+      DATA_DIR: /tmp/localstack/data
+      DEBUG: ''
+      DISABLE_CORS_CHECKS: '1'
+      DOCKER_HOST: unix:///var/run/docker.sock
+      EDGE_PORT: '4566'
+      HOST_TMP_FOLDER: /tmp/localstack
+      S3_SKIP_SIGNATURE_VALIDATION: '1'
+      SERVICES: s3
+    image: localstack/localstack:0.14.1
+    network_mode: service:db
+    volumes:
+    - localstack-data:/tmp/localstack:rw
+    - /var/run/docker.sock:/var/run/docker.sock:rw
+  memcached:
+    image: memcached:latest
+    network_mode: service:db
+    restart: unless-stopped
+  redis:
+    command: redis-server --save 20 1 --loglevel warning
+    image: redis:6.2-alpine
+    network_mode: service:db
+    restart: always
+    volumes:
+    - redis-cache:/data:rw
+version: '3'
+volumes:
+  localstack-data: {}
+  postgres-data: {}
+  redis-cache:
+    driver: local
