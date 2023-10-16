@@ -1,0 +1,14 @@
+{
+    "customizations": {
+        "codespaces": {
+            "repositories": {
+                "dmgardiner25/*": {
+                    "permissions": {
+                        "contents": "read",
+                        "packages": "read"
+                    }
+                }
+            }
+        }
+    }
+}
