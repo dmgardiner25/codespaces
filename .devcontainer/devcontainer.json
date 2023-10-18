@@ -7,6 +7,12 @@
                         "contents": "read",
                         "packages": "read"
                     }
+                },
+                "dmgardiner25/blank": {
+                    "permissions": {
+                        "contents": "read",
+                        "packages": "read"
+                    }
                 }
             }
         }
