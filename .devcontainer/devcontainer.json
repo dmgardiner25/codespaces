@@ -1,0 +1,6 @@
+{
+    "image": "ruby:3.1-bookworm",
+    "features": {
+        "ghcr.io/devcontainers/features/sshd:1": {}
+    }
+}
