@@ -3,5 +3,17 @@
         "PATH": "/test/path:${containerEnv:PATH}",
         "TEST_REMOTE_ENV": "test"
     },
-    "postAttachCommand": "echo test >> /workspaces/codespaces/text.txt"
+    "postAttachCommand": "echo test >> /workspaces/codespaces/text.txt",
+    "customizations": {
+        "codespaces": {
+            "repositories": {
+                "github/gh-actions-importer": {
+                    "permissions": {
+                        "contents": "read",
+                        "packages": "read"
+                    }
+                }
+            }
+        }
+    }
 }
