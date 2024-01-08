@@ -7,7 +7,7 @@
     "customizations": {
         "codespaces": {
             "repositories": {
-                "github/gh-actions-importer": {
+                "github/gh-net": {
                     "permissions": {
                         "contents": "read",
                         "packages": "read"
