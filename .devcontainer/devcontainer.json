@@ -9,5 +9,4 @@
 		"ghcr.io/devcontainers/features/sshd:1": {}
 	},
 	"postCreateCommand": "sudo cp .devcontainer/welcome-message.txt /usr/local/etc/vscode-dev-containers/first-run-notice.txt",
-	"remoteUser": "${localEnv:GITHUB_USER}"
 }
