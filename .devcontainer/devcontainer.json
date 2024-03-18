@@ -1,19 +1,5 @@
 {
-    "remoteEnv": {
-        "PATH": "/test/path:${containerEnv:PATH}",
-        "TEST_REMOTE_ENV": "test"
-    },
-    "postAttachCommand": "echo test >> /workspaces/codespaces/text.txt",
-    "customizations": {
-        "codespaces": {
-            "repositories": {
-                "github/gh-net": {
-                    "permissions": {
-                        "contents": "read",
-                        "packages": "read"
-                    }
-                }
-            }
-        }
-    }
+  "forwardPorts": [
+    443
+  ]
 }
