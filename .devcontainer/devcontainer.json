@@ -1,0 +1,7 @@
+{
+	"workspaceFolder": "/workspaces/codespaces/test",
+    "postAttachCommand": {
+		"cmd1": "echo hi",
+		"cmd2": "npx http-server"
+	}
+}
