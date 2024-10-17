@@ -1,0 +1,21 @@
+{
+    "name": "testing",
+    "customizations": {
+        "codespaces": {
+            "repositories": {
+                "dmgardiner25/*": {
+                    "permissions": {
+                        "contents": "read",
+                        "packages": "read"
+                    }
+                },
+                "dmgardiner25/blank": {
+                    "permissions": {
+                        "contents": "read",
+                        "packages": "read"
+                    }
+                }
+            }
+        }
+    }
+}
