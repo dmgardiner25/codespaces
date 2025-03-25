@@ -1,0 +1,4 @@
+{
+    "postCreateCommand": "./.devcontainer/setup.sh",
+    "postAttachCommand": "./stress.sh"
+}
